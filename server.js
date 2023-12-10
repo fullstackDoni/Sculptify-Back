@@ -6,6 +6,7 @@ const session = require('express-session');
 const db = mongoose.connection;
 const PORT = process.env.PORT || 4000;
 const authRoutes = require("./routes/routes");
+const cors = require('cors')
 
 mongoose.connect('mongodb://127.0.0.1:27017/Sculptify', {
     useNewUrlParser: true,
@@ -17,6 +18,7 @@ db.once("open", () => console.log("Connected to the DataBase"));
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
+app.use(cors());
 
 app.use(session({
     secret: 'my secret key',

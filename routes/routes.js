@@ -8,6 +8,7 @@ const app = express()
 const upload = require('../middleware/upload')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
+const cors = require('cors')
 
 router.post('/api/register', upload.single('photo'), async (req, res) => {
 	try {
@@ -57,5 +58,11 @@ router.post('/api/login', async (req, res) => {
 		res.status(500).json({ error: 'Internal server error' })
 	}
 })
+router.post('/register', (req, res) => {
+	console.log(req.body);
+	res.send('Registration successful');
+});
+
+
 
 module.exports = router

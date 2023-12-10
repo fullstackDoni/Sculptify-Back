@@ -14,10 +14,6 @@ let UserSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
-	is_active: {
-		type: Boolean,
-		default: false,
-	},
 	phone: {
 		type: String,
 		required: true,
